@@ -1,0 +1,26 @@
+.login-card{
+  height: 50%;
+  background-color: black;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.card-content{
+    width: 90%; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    color: white;
+}
+
+.login-bg{
+  background-image: url('./login-bg-image.png');
+  height: 1000px;
+   position: relative
+}

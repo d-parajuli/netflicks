@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/content-service/node_modules
+/api-service/node_modules
+/database-service/node_modules
 /.pnp
 .pnp.js
 

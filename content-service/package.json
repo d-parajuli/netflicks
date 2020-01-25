@@ -1,0 +1,11 @@
+{
+  "name": "weather-service",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.1",
+    "circular-json": "^0.5.9",
+    "cote": "^1.0.0",
+    "dotenv": "^8.2.0"
+  }
+}
