@@ -14,21 +14,31 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import MyList from './mylist.js';
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Route exact path="/">
-          <Browse />
-        </Route>
-        <Route path="/login" component={Login} />
-        <Route path ='/signup' component={SignUp} />
-      </div>
-    </Router>
-  );
+
+
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      Local: ''
+    }
+  }
+
+  render(){
+    return (
+       <Router>
+        <div className="App">
+          <Route path="/login" component={Login} />
+          <Route path ='/signup' component={SignUp} />
+          <Route path ='/browse' component={Browse} />
+        </div>
+      </Router>
+    )
+  }
 }
-
 
 
 export default App;

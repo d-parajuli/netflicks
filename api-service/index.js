@@ -7,11 +7,21 @@ var cors = require('cors');
 
 app.use(cors())
 app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema: MyGraphQLSchema,
-    graphiql: true,
-  }),
+  '/graphql', (req, res) =>
+  {
+    graphqlHTTP(
+    {
+      schema: MyGraphQLSchema,
+      graphiql: true,
+      context:
+      {
+        jwt: req.headers.authorization
+      }
+    })(req, res)
+  }
 );
+
+
+
 
 app.listen(4000);

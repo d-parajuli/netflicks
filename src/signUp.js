@@ -1,12 +1,24 @@
 import React from 'react';
 import { Button, Form, FormControl, Card } from 'react-bootstrap';
 import './login.css';
+import ApolloClient from 'apollo-boost';
+import gql from 'graphql-tag';
 
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql'
+});
 
 
 class SignUp extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      Name: '',
+      Email: '',
+      Password: ''
+    }
+    this.onUserRegister=this.onUserRegister.bind(this);
   }
 
 
@@ -15,13 +27,45 @@ onNameRegister = (event) =>{
       console.log(event.target.value);
     }
 onEmailRegister = (event) =>{
-          this.setState({Name: event.target.value})
-          console.log(event.target.value);
+    this.setState({Email: event.target.value})
+    console.log(event.target.value);
         }
 onPasswordRegister = (event) =>{
-              this.setState({Name: event.target.value})
-              console.log(event.target.value);
+      this.setState({Password: event.target.value}, function(){console.log(this.state.Password)})
+      console.log(event.target.value);
             }
+
+onUserRegister(){
+      client.mutate({
+      mutation: gql`
+        mutation registerUser($user: RegisterUserType! )
+        {
+          registerUser(user: $user)
+          {
+            name
+            email
+            password
+          }
+        }
+      `,
+      variables:
+      {
+        user:
+        {
+          name: this.state.Name,
+          email: this.state.Email,
+          password: this.state.Password
+        }
+      }
+      })
+      .then(data => {
+        console.log("User Registered")
+        console.log("Registered User :" + data.data.registerUser)
+
+      })
+      .catch(error => console.error(error));
+    }
+
 
 render(){
   return (
@@ -43,7 +87,7 @@ render(){
     <Form.Control type="password" placeholder="Password"  onChange={this.onPasswordRegister}/>
   </Form.Group>
 </Form>
-    <Button variant="danger" size="lg" block>Sign Up</Button>
+    <Button variant="danger" size="lg" block onClick={this.onUserRegister}>Sign Up</Button>
     <br/>
     </div>
     </Card>

@@ -100,15 +100,11 @@ componentDidMount(){
                 })
             })
             .catch(error => console.error(error));
-
-
-
 }
 
 
 render(){
   return (
-
     <div>
     <h2 style={{color: "white"}}>Popular Movies </h2>
     <PopularMovies popular={this.state.popular_movies}/>
@@ -116,10 +112,7 @@ render(){
     <TopRatedMovies top={this.state.top_rated_movies}/>
     <h2 style={{color: "white"}}> Popular TV Shows</h2>
     <PopularTV pop_tv={this.state.popular_tv}/>
-
     </div>
-
-
   )
 }
 }

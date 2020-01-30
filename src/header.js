@@ -1,10 +1,18 @@
 import React from 'react';
 import { Navbar,Nav,  Form, FormControl, Button } from 'react-bootstrap';
 import './header.css'
+import { withRouter } from "react-router-dom";
+
 
 class Header extends React.Component {
   constructor(props){
     super(props);
+    this.onClick=this.onClick.bind(this);
+  }
+
+  onClick(){
+    console.log("MY LIST CLICKED");
+    this.props.history.push("/mylist");
   }
 
 render(){
@@ -14,7 +22,7 @@ render(){
         <div className="netflicks">Netflicks</div>
     <Nav className="mr-auto">
       <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="/login">My List</Nav.Link>
+      <Nav.Link onClick={this.onClick}>My List</Nav.Link>
 
     </Nav>
     </Navbar>
@@ -24,4 +32,4 @@ render(){
 }
 
 
-export default Header
+export default withRouter(Header)
