@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Card, CardImg, CardText, CardBody, CardLink,
-  CardTitle, CardSubtitle, Row, Col, Container, Button
+  CardTitle, CardSubtitle, Row, Col, Container, Button, Alert
 } from 'reactstrap';
 import './contentList.css';
 import ApolloClient from 'apollo-boost';
@@ -25,8 +25,11 @@ class PopularMovies extends React.Component {
     super(props);
     this.state ={
       hover: false,
+      visible: false
     }
   }
+
+
 
 SaveToList(a){
   console.log("TOKEN IS" + localStorage.getItem('token'))
@@ -88,6 +91,7 @@ return (
     this.popular_list!== null &&
       popular_list
   }
+
   </div>
 )
 }
