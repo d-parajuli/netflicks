@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Application Preview
+
+![alt text](https://github.com/d-parajuli/netflicks/blob/master/public/netflicks.gif "Application Preview")
+
 ## Available Scripts
 
 In the project directory, you can run:
