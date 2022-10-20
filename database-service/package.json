@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^1.1.3",
     "bcrypt": "^3.0.7",
     "circular-json": "^0.5.9",
     "cote": "^1.0.0",
